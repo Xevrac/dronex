@@ -1,4 +1,9 @@
 # Dronex
+
+Dronex is a utility app designed for the Xevnet team. 
+
+# More
+
 Dronex is a proof of concept Electron app designed as a Xevnet utility for learning purposes.
 
 # Dependencies
