@@ -1,5 +1,18 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
 #about {
     position: absolute;
     bottom: 0;
     color: gray;
+    font-size: small;
+}
+
+#environment {
+    position: absolute;
+    bottom: 1.5em;
+    color: gray;
+    font-size: small;
 }
