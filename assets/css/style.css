@@ -3,20 +3,16 @@ body {
     font-family: Arial, sans-serif;
 }
 
-p {
-    font-size: 2em;
-}
-
 #about {
     position: absolute;
     bottom: 0;
-    color: #808080a1;
-    font-size: x-small;
+    color: gray;
+    font-size: small;
 }
 
 #environment {
     position: absolute;
     bottom: 1.5em;
-    color: #808080a1;
-    font-size: x-small;
+    color: gray;
+    font-size: small;
 }
