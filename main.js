@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron/main');
+const { app, BrowserWindow, ipcMain } = require('electron/main');
 const dotenv = require('dotenv');
 const path = require('node:path');
 
@@ -25,6 +25,7 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
+  ipcMain.handle('init', () => 'Dronex initialized, backend communication established.')
   createWindow()
 
   app.on('activate', () => {
