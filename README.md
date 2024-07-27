@@ -1,5 +1,7 @@
 # Dronex
 
+![Icon-sml](https://github.com/user-attachments/assets/fa7b9069-b410-4ddd-8705-cab3f2f074ed)
+
 Dronex is a utility app designed for the Xevnet team. 
 
 # More
