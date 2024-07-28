@@ -16,3 +16,23 @@ versions.version().then((ver) => {
 }).catch((err) => {
   version.innerText = `Error: ${err}`;
 });
+
+document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
+  const isDarkMode = await window.darkMode.toggle()
+  document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
+})
+
+document.getElementById('reset-to-system').addEventListener('click', async () => {
+  await window.darkMode.system()
+  document.getElementById('theme-source').innerHTML = 'System'
+})
+
+const updateOnlineStatus = async () => {
+  const isOnline = await window.network.checkInternetConnection();
+  document.getElementById('status').innerHTML = isOnline ? 'online' : 'offline';
+}
+
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+
+updateOnlineStatus();

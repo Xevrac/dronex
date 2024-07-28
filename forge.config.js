@@ -52,7 +52,7 @@ module.exports = {
       config: {
         repository: {
           owner: 'Xevrac',
-          name: 'dronex'
+          name: 'Dronex'
         },
         prerelease: false,
         draft: true

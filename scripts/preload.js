@@ -22,3 +22,43 @@ contextBridge.exposeInMainWorld('versions', {
   // note we wrap call in a helper function. Never expose the entire ipcRenderer via preload
   init: () => ipcRenderer.invoke('init')
 })
+
+contextBridge.exposeInMainWorld('darkMode', {
+  toggle: () => ipcRenderer.invoke('dark-mode:toggle'),
+  system: () => ipcRenderer.invoke('dark-mode:system')
+})
+
+contextBridge.exposeInMainWorld('network', {
+  checkInternetConnection: async () => {
+    try {
+      const response = await fetch('https://xevnet.au', { method: 'HEAD', mode: 'no-cors' });
+      return response.ok || response.type === 'opaque';
+    } catch (error) {
+      return false;
+    }
+  }
+});
+
+contextBridge.exposeInMainWorld('electron', {
+  navigateToAbout: () => ipcRenderer.send('navigate-to-about'),
+  navigateToHome: () => ipcRenderer.send('navigate-to-home'),
+  navigateToSettings: () => ipcRenderer.send('navigate-to-settings')
+});
+
+ipcRenderer.on('navigate-to-about', () => {
+  if (!window.location.href.endsWith('about.html')) {
+    window.location.href = '../assets/html/about.html';
+  }
+});
+
+ipcRenderer.on('navigate-to-home', () => {
+  if (!window.location.href.endsWith('index.html')) {
+    window.location.href = '../index.html';
+  }
+});
+
+ipcRenderer.on('navigate-to-settings', () => {
+  if (!window.location.href.endsWith('settings.html')) {
+    window.location.href = '../assets/html/settings.html';
+  }
+});
