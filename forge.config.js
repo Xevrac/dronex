@@ -4,6 +4,7 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: 'assets/img/logo'
   },
   rebuildConfig: {},
   makers: [
@@ -11,7 +12,8 @@ module.exports = {
       name: '@electron-forge/maker-squirrel',
       config: {
         authors: 'Xevrac',
-        description: 'Dronex is a proof of concept Electron app designed as a Xevnet utility for learning purposes.'
+        description: 'Dronex is a proof of concept Electron app designed as a Xevnet utility for learning purposes.',
+        setupIcon: 'assets/img/logo.ico'
       },
     },
     {
