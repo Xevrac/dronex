@@ -9,7 +9,10 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        authors: 'Xevrac',
+        description: 'Dronex is a proof of concept Electron app designed as a Xevnet utility for learning purposes.'
+      },
     },
     {
       name: '@electron-forge/maker-zip',

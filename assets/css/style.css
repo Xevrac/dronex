@@ -16,3 +16,10 @@ body {
     color: gray;
     font-size: small;
 }
+
+#version {
+    position: absolute;
+    bottom: 3em;
+    color: gray;
+    font-size: small;
+}

@@ -1,6 +1,6 @@
 {
   "name": "dronex",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Dronex is a proof of concept Electron app designed as a Xevnet utility for learning purposes.",
   "main": "main.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Xevrac/dronex.git"
+    "url": "https://github.com/Xevrac/dronex.git"
   },
   "author": "Xevrac",
   "license": "MIT",
@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "electron-log": "^5.1.7",
     "electron-squirrel-startup": "^1.0.1",
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "update-electron-app": "^3.0.0"
   }
 }

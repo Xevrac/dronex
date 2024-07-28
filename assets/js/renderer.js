@@ -9,3 +9,10 @@ const func = async () => {
     console.log(response)
   }
 func()
+
+const version = document.getElementById('version');
+versions.version().then((ver) => {
+  version.innerText = `v` + ver;
+}).catch((err) => {
+  version.innerText = `Error: ${err}`;
+});
