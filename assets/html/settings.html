@@ -12,10 +12,28 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>Dronex</title>
+    <title>Dronex | Settings</title>
   </head>
   <body>
-    <h1>Settings test!</h1>
+    <div class="container">
+      <div class="sidebar-container"></div>
+      <main class="content">
+        <header>
+          <h2>Settings</h2>
+        </header>
+        <section class="main-content">
+          <div class="content-body">
+            <!-- Main content goes here -->
+            <button id="toggle-dark-mode">Toggle Dark Mode</button>
+            <button id="reset-to-system">Reset to System Theme</button>
+          </div>
+        </section>
+        <footer>    
+          <p id="credit">© <span id="year">Year</span> Xevrac</p>
+          <p id="environment">Error: Cannot fetch build environment!</p>
+        </footer>
+      </main>
+    </div>
   </body>
   <script src="../js/renderer.js"></script>
 </html>

@@ -12,10 +12,30 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>Dronex</title>
+    <title>Dronex | About</title>
   </head>
   <body>
-    <h1>About test!</h1>
+    <div class="container">
+      <div class="sidebar-container"></div>
+      <main class="content">
+        <header>
+          <h2>About</h2>
+        </header>
+        <section class="main-content">
+          <div class="content-body">
+            <!-- Main content goes here -->
+            <img src="../img/logo.png" alt="Logo" class="logo"/>
+            <p id="version">Error: Cannot fetch version info!</p>
+            <p id="environment">Error: Cannot fetch build environment!</p>
+            <p id="about">Error: Cannot fetch version info!</p>
+          </div>
+        </section>
+        <footer>    
+          <p id="credit">© <span id="year">Year</span> Xevrac</p>
+          <p id="environment">Error: Cannot fetch build environment!</p>
+        </footer>
+      </main>
+    </div>
   </body>
   <script src="../js/renderer.js"></script>
 </html>

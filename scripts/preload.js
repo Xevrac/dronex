@@ -1,4 +1,13 @@
-const { contextBridge, ipcRenderer } = require('electron')
+const { contextBridge, ipcRenderer, shell } = require('electron')
+const path = require('path');
+const fs = require('fs');
+
+contextBridge.exposeInMainWorld('api', {
+  loadSidebar: () => ipcRenderer.invoke('load-sidebar'),
+  getUsername: async () => {
+    return await ipcRenderer.invoke('get-username');
+  }
+});
 
 contextBridge.exposeInMainWorld('versions', {
   node: () => process.versions.node,
@@ -6,6 +15,7 @@ contextBridge.exposeInMainWorld('versions', {
   electron: () => process.versions.electron,
   dronex: () => process.env.VERSION,
   environment: () => process.env.NODE_ENV,
+  getCurrentYear: () => ipcRenderer.invoke('get-current-year'),
   version: () => {
     return new Promise((resolve, reject) => {
       ipcRenderer.send('app_version');
@@ -26,7 +36,7 @@ contextBridge.exposeInMainWorld('versions', {
 contextBridge.exposeInMainWorld('darkMode', {
   toggle: () => ipcRenderer.invoke('dark-mode:toggle'),
   system: () => ipcRenderer.invoke('dark-mode:system')
-})
+});
 
 contextBridge.exposeInMainWorld('network', {
   checkInternetConnection: async () => {
@@ -40,25 +50,19 @@ contextBridge.exposeInMainWorld('network', {
 });
 
 contextBridge.exposeInMainWorld('electron', {
-  navigateToAbout: () => ipcRenderer.send('navigate-to-about'),
-  navigateToHome: () => ipcRenderer.send('navigate-to-home'),
-  navigateToSettings: () => ipcRenderer.send('navigate-to-settings')
-});
-
-ipcRenderer.on('navigate-to-about', () => {
-  if (!window.location.href.endsWith('about.html')) {
-    window.location.href = '../assets/html/about.html';
+  navigateTo: (page) => ipcRenderer.send('navigate', page),
+  openExternal: (url) => {
+    shell.openExternal(url);
   }
 });
 
-ipcRenderer.on('navigate-to-home', () => {
-  if (!window.location.href.endsWith('index.html')) {
-    window.location.href = '../index.html';
+ipcRenderer.on('navigate', (event, page) => {
+  const pages = {
+    home: '../index.html'
+  };
+  if (pages[page]) {
+    window.location.replace(`${pages[page]}?t=${new Date().getTime()}`);  
   }
 });
 
-ipcRenderer.on('navigate-to-settings', () => {
-  if (!window.location.href.endsWith('settings.html')) {
-    window.location.href = '../assets/html/settings.html';
-  }
-});
+
