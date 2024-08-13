@@ -90,7 +90,7 @@ function navigate(page) {
   const focusedWindow = BrowserWindow.getFocusedWindow();
   if (focusedWindow) {
     const pages = {
-      home: path.join(__dirname, 'assets/index.html')
+      home: path.join(__dirname, 'assets/html/index.html')
     };
     if (pages[page]) {
       focusedWindow.loadFile(pages[page]);
@@ -135,7 +135,7 @@ const createWindow = () => {
     fullscreenable: false
   });
 
-  win.loadFile(path.join(__dirname, 'assets/index.html'));
+  win.loadFile(path.join(__dirname, 'assets/html/index.html'));
 
   win.maximize();
 

@@ -58,7 +58,7 @@ contextBridge.exposeInMainWorld('electron', {
 
 ipcRenderer.on('navigate', (event, page) => {
   const pages = {
-    home: '../index.html'
+    home: 'index.html'
   };
   if (pages[page]) {
     window.location.replace(`${pages[page]}?t=${new Date().getTime()}`);  
